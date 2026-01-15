@@ -1,11 +1,12 @@
+import Banner from "@/Components/home/Banner";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
- <button className="btn btn-primary">Click me</button>
- <button className="btn btn-outline btn-primary">Click me</button>
- this is your perfume shop
+    <div className="">
+      <section>
+        <Banner />
+      </section>
     </div>
   );
 }

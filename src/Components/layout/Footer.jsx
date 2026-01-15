@@ -15,7 +15,7 @@ const Footer = () => {
               <Image
                 src={logo}
                 alt="Sentora Logo"
-                className="h-28 w-auto object-contain"
+                className="h-12 md:h-16 w-auto object-contain"
               />
             </Link>
             <p className="text-gray-500 text-sm leading-relaxed">
@@ -23,35 +23,35 @@ const Footer = () => {
               premium fragrances. Luxury perfumes for every occasion.
             </p>
             <div className="grid grid-flow-col gap-4">
-            <Link
-              href="https://facebook.com"
-              target="_blank"
-              className="btn btn-ghost btn-circle hover:bg-primary hover:text-white"
-            >
-              <FaFacebook size={24} />
-            </Link>
-            <Link
-              href="https://twitter.com"
-              target="_blank"
-              className="btn btn-ghost btn-circle hover:bg-primary hover:text-white"
-            >
-              <FaXTwitter size={24} />
-            </Link>
-            <Link
-              href="https://instagram.com"
-              target="_blank"
-              className="btn btn-ghost btn-circle hover:bg-primary hover:text-white"
-            >
-              <FaInstagram size={24} />
-            </Link>
-            <Link
-              href="https://youtube.com"
-              target="_blank"
-              className="btn btn-ghost btn-circle hover:bg-primary hover:text-white"
-            >
-              <FaYoutube size={24} />
-            </Link>
-          </div>
+              <Link
+                href="https://facebook.com"
+                target="_blank"
+                className="btn btn-ghost btn-circle hover:bg-primary hover:text-white"
+              >
+                <FaFacebook size={24} />
+              </Link>
+              <Link
+                href="https://twitter.com"
+                target="_blank"
+                className="btn btn-ghost btn-circle hover:bg-primary hover:text-white"
+              >
+                <FaXTwitter size={24} />
+              </Link>
+              <Link
+                href="https://instagram.com"
+                target="_blank"
+                className="btn btn-ghost btn-circle hover:bg-primary hover:text-white"
+              >
+                <FaInstagram size={24} />
+              </Link>
+              <Link
+                href="https://youtube.com"
+                target="_blank"
+                className="btn btn-ghost btn-circle hover:bg-primary hover:text-white"
+              >
+                <FaYoutube size={24} />
+              </Link>
+            </div>
           </div>
 
           {/* Quick Links */}
