@@ -18,7 +18,7 @@ const Navbar = () => {
   // Navigation Links Data
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "Shop", path: "/products" },
+    { name: "Shop", path: "/shop" },
     { name: "Blog", path: "/blog" },
     { name: "Contact", path: "/contact" },
   ];
@@ -53,7 +53,7 @@ const Navbar = () => {
                 priority
                 src={logo}
                 alt="Perfume Store Logo"
-                className="h-10 md:h-12 w-auto object-contain"
+                className="h-16 md:h-28 w-auto object-contain"
               />
             </Link>
 
