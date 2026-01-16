@@ -59,7 +59,7 @@ const Banner = () => {
                 : "opacity-0 absolute top-0 left-0 w-full"
             }`}
           >
-            {/* Text Content */}
+      
             <div
               className="flex-1 text-center md:text-left space-y-4 z-10 transition-transform duration-700 delay-100 pb-8 md:pb-0"
               style={{
@@ -74,7 +74,7 @@ const Banner = () => {
                 {slide.title.split(" ").slice(0, 3).join(" ")} <br />{" "}
                 {slide.title.split(" ").slice(3).join(" ")}
               </h1>
-              {/* Mobile Title without break */}
+     
               <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-4 md:hidden">
                 {slide.title}
               </h1>
@@ -94,7 +94,7 @@ const Banner = () => {
               </Link>
             </div>
 
-            {/* Image Content */}
+     
             <div className="flex-1 flex justify-center md:justify-end relative w-full">
               <div className="relative w-[260px] h-[340px] sm:w-[320px] sm:h-[420px] md:w-[400px] md:h-[500px]">
                 <img
@@ -112,7 +112,7 @@ const Banner = () => {
         ))}
       </div>
 
-      {/* Pagination Dots */}
+    
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20">
         {slides.map((_, index) => (
           <button

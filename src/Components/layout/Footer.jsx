@@ -9,20 +9,20 @@ const Footer = () => {
     <footer className="bg-white border-t border-gray-100 pt-16 font-sans">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          {/* Brand Column */}
-          <div className="space-y-6">
+        
+          <div className="space-y-2">
             <Link href="/" className="inline-block">
               <Image
                 src={logo}
                 alt="Sentora Logo"
-                className="h-12 md:h-16 w-auto object-contain"
+                className="h-20 md:h-24 w-auto object-contain"
               />
             </Link>
             <p className="text-gray-500 text-sm leading-relaxed">
               Discover your signature scent from our exclusive collection of
               premium fragrances. Luxury perfumes for every occasion.
             </p>
-            <div className="grid grid-flow-col gap-4">
+            <div className="grid grid-flow-col gap-2">
               <Link
                 href="https://facebook.com"
                 target="_blank"
