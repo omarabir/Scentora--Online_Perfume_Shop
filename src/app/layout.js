@@ -2,6 +2,8 @@ import { Jost } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/Components/layout/Navbar";
 import Footer from "@/Components/layout/Footer";
+import { ToastContainer } from "react-toastify";
+import NextAuthProvider from "@/provider/NextAuthProvider";
 
 const jost = Jost({
   weight: ["400", "500", "600", "700"],
@@ -13,18 +15,24 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`${jost.className} antialiased`}>
-        <header>
-          <Navbar />
-        </header>
-        <main className="py-2 md:w-11/12 mx-auto min-h-[calc(100vh-302px)]">
-          {children}
-        </main>
-        <footer>
-          <Footer />
-        </footer>
-      </body>
-    </html>
+    <NextAuthProvider>
+      <html lang="en" suppressHydrationWarning>
+        <body
+          className={`${jost.className} antialiased`}
+          suppressHydrationWarning
+        >
+          <header>
+            <Navbar />
+          </header>
+          <main className="py-2 md:w-11/12 mx-auto min-h-[calc(100vh-302px)]">
+            {children}
+          </main>
+          <footer>
+            <Footer />
+          </footer>
+          <ToastContainer />
+        </body>
+      </html>
+    </NextAuthProvider>
   );
 }

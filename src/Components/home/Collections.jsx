@@ -7,19 +7,19 @@ const Collections = () => {
     {
       title: "For Him",
       image:
-        "https://images.unsplash.com/photo-1555667923-d95a2599fa2d?q=80&w=800&auto=format&fit=crop",
+        "https://i.ibb.co.com/PsknsjQ6/image.png",
       count: "12 Products",
     },
     {
       title: "For Her",
       image:
-        "https://images.unsplash.com/photo-1595166669910-c020556da85f?q=80&w=800&auto=format&fit=crop",
+        "https://i.ibb.co.com/FLvVHFsC/image.png",
       count: "18 Products",
     },
     {
       title: "Unisex",
       image:
-        "https://images.unsplash.com/photo-1615592396715-99b8dd93673c?q=80&w=800&auto=format&fit=crop",
+        "https://i.ibb.co.com/6csPDsHT/image.png",
       count: "8 Products",
     },
   ];

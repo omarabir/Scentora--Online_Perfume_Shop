@@ -11,6 +11,7 @@ import {
   FaUser,
   FaShoppingBag,
 } from "react-icons/fa";
+import AuthButton from "../Buttons/AuthButton";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -43,11 +44,9 @@ const Navbar = () => {
         </div>
       </div>
 
-    
       <div className="bg-white py-4 md:py-6 shadow-sm md:shadow-none sticky top-0 z-40 md:static">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap items-center justify-between gap-4">
-       
             <Link href="/" className="shrink-0">
               <Image
                 priority
@@ -57,7 +56,6 @@ const Navbar = () => {
               />
             </Link>
 
-     
             <div className="hidden lg:flex flex-1 max-w-xl items-center border border-gray-200 rounded-full bg-gray-50 focus-within:bg-white focus-within:border-primary transition-colors overflow-hidden h-11">
               <input
                 className="flex-1 w-full h-full bg-transparent px-6 text-sm text-gray-700 placeholder:text-gray-400 focus:outline-none"
@@ -68,14 +66,9 @@ const Navbar = () => {
               </button>
             </div>
 
-          
             <div className="flex items-center gap-4 md:gap-6 shrink-0">
-              
-              <div className="cursor-pointer group hover:text-primary transition-colors hidden sm:block">
-                <FaUser className="w-5 h-5 md:w-6 md:h-6 text-gray-600 group-hover:text-primary" />
-              </div>
+              <AuthButton />
 
-             
               <div className="indicator cursor-pointer group">
                 <span className="indicator-item badge badge-primary text-white text-[10px] h-4 w-4 p-0 border-2 border-white">
                   0
@@ -83,7 +76,6 @@ const Navbar = () => {
                 <FaShoppingBag className="w-5 h-5 md:w-6 md:h-6 text-gray-600 group-hover:text-primary transition-colors" />
               </div>
 
-         
               <button
                 className="lg:hidden text-gray-700 hover:text-primary focus:outline-none"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -96,7 +88,6 @@ const Navbar = () => {
               </button>
             </div>
 
-    
             <div className="w-full lg:hidden mt-2">
               <div className="flex items-center border border-gray-200 rounded-full bg-gray-50 focus-within:bg-white focus-within:border-primary overflow-hidden h-10">
                 <input
@@ -112,12 +103,8 @@ const Navbar = () => {
         </div>
       </div>
 
-     
       <div className="bg-[#f5f5f5] border-t border-gray-100 hidden lg:block p-4">
         <div className="container mx-auto px-4 flex items-center">
-         
-         
-
           <ul className="flex-1 flex justify-center items-center gap-8 text-sm font-bold text-black uppercase tracking-wide">
             {navLinks.map((link) => (
               <li key={link.name}>
@@ -128,13 +115,11 @@ const Navbar = () => {
         </div>
       </div>
 
-      
       <div
         className={`fixed inset-0 z-50 lg:hidden transition-all duration-300 ${
           isMobileMenuOpen ? "visible" : "invisible"
         }`}
       >
-   
         <div
           className={`absolute inset-0 bg-black/50 transition-opacity duration-300 ${
             isMobileMenuOpen ? "opacity-100" : "opacity-0"
@@ -184,7 +169,6 @@ const Navbar = () => {
             </ul>
           </div>
 
-          {/* Mobile Categories or other info */}
           <div className="p-5 mt-auto">
             <div className="bg-primary/5 p-4 rounded-lg">
               <p className="text-xs text-gray-500 text-center">

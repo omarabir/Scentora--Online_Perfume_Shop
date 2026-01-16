@@ -4,17 +4,16 @@ import React from "react";
 import { FaStar, FaStarHalfAlt, FaRegStar, FaRegHeart } from "react-icons/fa";
 import { FiSearch, FiShoppingBag } from "react-icons/fi";
 import DetailsButton from "../Buttons/DetailsButton";
+import CartButton from "../Buttons/CartButton";
 
 const ProductCard = ({ product }) => {
-  // Fallback if product is undefined to prevent crash during development/testing
+
   if (!product) return null;
 
   const { name, image, price, metrics, year } = product;
   const { rating } = metrics || { rating: 0 };
 
-  // Logic to determine if "New" badge should be shown.
-  // Assuming products released after 2014 are "New" in this context just to show the badge on some items (e.g. Sauvage 2015)
-  // Adjust logic as needed.
+ 
   const isNew = year >= 2015;
 
   const renderStars = (rating) => {
@@ -23,7 +22,7 @@ const ProductCard = ({ product }) => {
       if (i <= rating) {
         stars.push(<FaStar key={i} className="text-amber-400 text-sm" />);
       } else if (i > rating && i - 1 < rating) {
-        // Handling non-integer ratings roughly, or using FaStarHalfAlt properly
+        
         stars.push(
           <FaStarHalfAlt key={i} className="text-amber-400 text-sm" />
         );
@@ -36,7 +35,7 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className="group bg-white  transition-all duration-300 hover:border-primary border  border-gray-200 relative flex flex-col items-center">
-      {/* New Badge */}
+
       {isNew && (
         <div className="absolute top-4 left-4 z-10">
           <span className="bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
@@ -45,9 +44,9 @@ const ProductCard = ({ product }) => {
         </div>
       )}
 
-      {/* Product Image */}
+  
       <div className="w-full h-64 mb-4 flex items-center justify-center overflow-hidden relative bg-[#F2F2F2]">
-        {/* Using img tag since external domains might not be configured in Next.js */}
+       
         <Image
           width={500}
           height={500}
@@ -56,7 +55,7 @@ const ProductCard = ({ product }) => {
           className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-500"
         />
 
-        {/* Hover Action Buttons */}
+        
         <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <div className="flex items-center gap-4 bg-primary py-3 px-6 rounded-full shadow-xl transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
             <button
@@ -68,12 +67,7 @@ const ProductCard = ({ product }) => {
             <Link href={`/shop/${product._id}`}>
               <DetailsButton></DetailsButton>
             </Link>
-            <button
-              className="text-white hover:text-gray-200 transition-colors"
-              title="Add to Cart"
-            >
-              <FiShoppingBag size={20} />
-            </button>
+          <CartButton product={product}></CartButton>
           </div>
         </div>
       </div>

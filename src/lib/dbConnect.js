@@ -2,6 +2,7 @@ const uri = process.env.MONGODB_URI;
 const dbname = process.env.DBNAME;
 export const collections = {
   PRODUCTS: "products",
+  USERS: "users",
 };
 import { MongoClient, ServerApiVersion } from "mongodb";
 
