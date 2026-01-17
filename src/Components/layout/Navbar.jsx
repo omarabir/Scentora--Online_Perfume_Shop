@@ -13,11 +13,11 @@ import {
 } from "react-icons/fa";
 import AuthButton from "../Buttons/AuthButton";
 import CartValue from "../home/CartValue";
+import SearchButton from "../Buttons/SearchButton";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Navigation Links Data
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Shop", path: "/shop" },
@@ -56,14 +56,8 @@ const Navbar = () => {
               />
             </Link>
 
-            <div className="hidden lg:flex flex-1 max-w-xl items-center border border-gray-200 rounded-full bg-gray-50 focus-within:bg-white focus-within:border-primary transition-colors overflow-hidden h-11">
-              <input
-                className="flex-1 w-full h-full bg-transparent px-6 text-sm text-gray-700 placeholder:text-gray-400 focus:outline-none"
-                placeholder="Search for products..."
-              />
-              <button className="h-full px-8 bg-primary text-white hover:bg-opacity-90 transition-colors flex items-center justify-center">
-                <FaSearch className="w-4 h-4" />
-              </button>
+            <div className="hidden lg:flex flex-1 justify-center px-4">
+              <SearchButton />
             </div>
 
             <div className="flex items-center gap-4 md:gap-6 shrink-0">
@@ -87,15 +81,7 @@ const Navbar = () => {
             </div>
 
             <div className="w-full lg:hidden mt-2">
-              <div className="flex items-center border border-gray-200 rounded-full bg-gray-50 focus-within:bg-white focus-within:border-primary overflow-hidden h-10">
-                <input
-                  className="flex-1 w-full h-full bg-transparent px-4 text-sm text-gray-700 placeholder:text-gray-400 focus:outline-none"
-                  placeholder="Search..."
-                />
-                <button className="h-full px-6 bg-primary text-white flex items-center justify-center">
-                  <FaSearch className="w-3 h-3" />
-                </button>
-              </div>
+              <SearchButton />
             </div>
           </div>
         </div>

@@ -55,3 +55,22 @@ export const getSingleProduct = async (id) => {
     image: getFixedImage(product.image),
   };
 };
+
+export const searchProducts = async (query) => {
+  if (!query || query.length < 2) return [];
+  const collection = await dbConnect(collections.PRODUCTS);
+  const regex = new RegExp(query, "i");
+
+  const products = await collection
+    .find({
+      $or: [{ name: regex }, { brand: regex }, { category: regex }],
+    })
+    .limit(5)
+    .toArray();
+
+  return products.map((product) => ({
+    ...product,
+    _id: product._id.toString(),
+    image: getFixedImage(product.image),
+  }));
+};
