@@ -1,7 +1,8 @@
 import RegisterForm from "@/Components/auth/RegisterForm";
+import SocialButton from "@/Components/Buttons/SocialButton";
 import Link from "next/link";
 import React from "react";
-import { FaGoogle } from "react-icons/fa";
+
 
 const page = () => {
   return (
@@ -20,10 +21,7 @@ const page = () => {
                 Login with social account
               </p>
               <div className="flex gap-4">
-                <button className="flex items-center gap-2 px-4 py-2 border border-transparent text-xs font-bold rounded-sm text-gray-700 hover:bg-gray-50 transition-colors">
-                  <FaGoogle className="h-4 w-4" />
-                  <span>GOOGLE</span>
-                </button>
+                <SocialButton />
               </div>
             </div>
 

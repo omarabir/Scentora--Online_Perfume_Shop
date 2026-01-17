@@ -2,12 +2,13 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "react-toastify";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const LoginForm = () => {
-  const router = useRouter();
+  const searchParams = useSearchParams();
+
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [form, setForm] = useState({
@@ -57,13 +58,12 @@ const LoginForm = () => {
         redirect: false,
         email: form.email,
         password: form.password,
+        callbackUrl: searchParams.get("callbackUrl") || "/",
       });
 
       if (result?.error) {
         toast.error("Invalid email or password");
       } else {
-        router.push("/");
-        router.refresh();
         toast.success("Logged in successfully");
       }
     } catch (error) {
