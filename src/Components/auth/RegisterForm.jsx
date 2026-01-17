@@ -71,7 +71,7 @@ const RegisterForm = () => {
         if (signInResult?.ok && !signInResult?.error) {
           toast.success("Registration successful!");
           router.push(callbackUrl);
-          router.refresh();
+        
         } else {
           toast.error(signInResult?.error || "Login failed after registration");
         }

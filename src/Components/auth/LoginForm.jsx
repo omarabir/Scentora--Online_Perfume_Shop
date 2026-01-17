@@ -8,9 +8,10 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const LoginForm = () => {
   const searchParams = useSearchParams();
-  const callback = searchParams.get("callbackUrl");
+  const callback = searchParams.get("callbackUrl") || "/";
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter();
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -58,6 +59,7 @@ const LoginForm = () => {
         redirect: false,
         email: form.email,
         password: form.password,
+        redirect: false,
         callbackUrl: searchParams.get("callbackUrl") || "/",
       });
 
@@ -65,6 +67,7 @@ const LoginForm = () => {
         toast.error("Invalid email or password");
       } else {
         toast.success("Logged in successfully");
+        router.push(callback);
       }
     } catch (error) {
       console.error("Login error:", error);

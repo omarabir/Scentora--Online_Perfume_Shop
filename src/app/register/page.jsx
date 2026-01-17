@@ -1,5 +1,6 @@
 import RegisterForm from "@/Components/auth/RegisterForm";
 import SocialButton from "@/Components/Buttons/SocialButton";
+import Redirect from "@/Components/Redirect";
 import Link from "next/link";
 import React from "react";
 
@@ -8,6 +9,7 @@ const page = () => {
   return (
     <div>
       <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+        <Redirect />
         <div className="max-w-md w-full bg-white p-8 rounded-sm shadow-sm border border-gray-100">
           <div className="border-b border-gray-100 pb-6 mb-6">
             <h2 className="text-2xl font-serif text-gray-800">
