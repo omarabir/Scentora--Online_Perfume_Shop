@@ -12,6 +12,7 @@ import {
   FaShoppingBag,
 } from "react-icons/fa";
 import AuthButton from "../Buttons/AuthButton";
+import CartValue from "../home/CartValue";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -26,7 +27,6 @@ const Navbar = () => {
 
   return (
     <div className="flex flex-col w-full font-sans relative z-50">
-      {/* Top Bar - Hidden on mobile for cleaner look, visible on md+ */}
       <div className="bg-primary text-white text-xs md:text-sm py-2 hidden md:block">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="text-center md:text-left">
@@ -70,9 +70,7 @@ const Navbar = () => {
               <AuthButton />
 
               <div className="indicator cursor-pointer group">
-                <span className="indicator-item badge badge-primary text-white text-[10px] h-4 w-4 p-0 border-2 border-white">
-                  0
-                </span>
+                <CartValue />
                 <FaShoppingBag className="w-5 h-5 md:w-6 md:h-6 text-gray-600 group-hover:text-primary transition-colors" />
               </div>
 

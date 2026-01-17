@@ -1,12 +1,16 @@
 "use client";
 import { postUser } from "@/app/actions/server/auth";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { signIn } from "next-auth/react";
 
 const RegisterForm = () => {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get("callbackUrl") || "/";
+
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [form, setForm] = useState({
@@ -57,8 +61,20 @@ const RegisterForm = () => {
     try {
       const result = await postUser(form);
       if (result?.acknowledged) {
-        toast.success("Registration successful! Please login.");
-        router.push("/login");
+        const signInResult = await signIn("credentials", {
+          redirect: false,
+          email: form.email,
+          password: form.password,
+          callbackUrl,
+        });
+
+        if (signInResult?.ok && !signInResult?.error) {
+          toast.success("Registration successful!");
+          router.push(callbackUrl);
+          router.refresh();
+        } else {
+          toast.error(signInResult?.error || "Login failed after registration");
+        }
       } else {
         toast.error("Registration failed. User may already exist.");
       }

@@ -25,7 +25,7 @@ const LoginPage = () => {
           </div>
 
           <LoginForm />
-          <div className="text-center">
+          {/* <div className="text-center">
             <p>
               Don't have an account?{" "}
               <Link
@@ -35,7 +35,7 @@ const LoginPage = () => {
                 Register here
               </Link>
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

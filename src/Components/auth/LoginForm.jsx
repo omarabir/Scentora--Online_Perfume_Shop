@@ -8,7 +8,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const LoginForm = () => {
   const searchParams = useSearchParams();
-
+  const callback = searchParams.get("callbackUrl");
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [form, setForm] = useState({
@@ -206,6 +206,17 @@ const LoginForm = () => {
           </button>
         </div>
       </form>
+      <div className="text-center mt-3">
+        <p>
+          Don't have an account?{" "}
+          <Link
+            href={`/register${callback ? `?callbackUrl=${encodeURIComponent(callback)}` : ""}`}
+            className="text-primary text-center hover:underline"
+          >
+            Register here
+          </Link>
+        </p>
+      </div>
     </div>
   );
 };
