@@ -17,6 +17,8 @@ import {
   FaShieldAlt,
 } from "react-icons/fa";
 import Image from "next/image";
+import AddtoWishlist from "@/Components/Buttons/AddtoWishlist";
+import AddToBag from "@/Components/Buttons/AddToBag";
 
 const ProductDetails = async (props) => {
   const params = await props.params;
@@ -136,6 +138,7 @@ const ProductDetails = async (props) => {
                 </span>
               </div>
               <Image
+            
                 src={image}
                 alt={name}
                 className="w-3/4 max-h-[80%] object-contain drop-shadow-2xl opacity-100 transform transition-transform duration-700 ease-out group-hover:scale-105"
@@ -148,8 +151,8 @@ const ProductDetails = async (props) => {
               <div className="w-24 h-24 border border-primary cursor-pointer p-2 bg-[#f8f8f8]">
                 <Image
                   alt={name}
-                  width={500}
-                  height={500}
+                  width={800}
+                  height={800}
                   src={image}
                   className="w-full h-full object-contain"
                 />
@@ -213,12 +216,8 @@ const ProductDetails = async (props) => {
                   </span>
                 </div>
                 <div className="flex  gap-4 mb-8">
-                  <button className="w-full  btn  bg-primary text-white  uppercase tracking-[0.15em] text-sm font-bold  transition-colors duration-300">
-                    Add to Bag
-                  </button>
-                  <button className="w-full btn btn-outline btn-primary  uppercase tracking-[0.15em] text-xs font-bold  transition-colors duration-300">
-                    Add to Wishlist
-                  </button>
+                 <AddToBag product={product} />
+                  <AddtoWishlist productId={product._id} />
                 </div>
               </div>
 

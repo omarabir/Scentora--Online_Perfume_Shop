@@ -3,7 +3,9 @@ import ProductCard from "../cards/ProductCard";
 import { getProducts } from "@/app/actions/server/product";
 
 const Products = async () => {
-  const products = (await getProducts()) || [];
+  const allProducts = (await getProducts()) || [];
+  const products = allProducts.slice(0, 8);
+
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="text-center mb-8">

@@ -9,7 +9,6 @@ const Footer = () => {
     <footer className="bg-white border-t border-gray-100 pt-16 font-sans">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-        
           <div className="space-y-2">
             <Link href="/" className="inline-block">
               <Image
@@ -54,7 +53,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
+   
           <div>
             <h3 className="text-lg font-bold mb-6 text-gray-900">
               Quick Links
@@ -95,7 +94,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Customer Service */}
+       
           <div>
             <h3 className="text-lg font-bold mb-6 text-gray-900">
               Customer Support
@@ -136,7 +135,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Newsletter */}
+         
           <div>
             <h3 className="text-lg font-bold mb-6 text-gray-900">Newsletter</h3>
             <p className="text-gray-500 text-sm mb-6">
@@ -147,6 +146,7 @@ const Footer = () => {
                 type="email"
                 placeholder="Enter your email address"
                 className="w-full px-4 py-3 bg-gray-50 border border-gray-100 focus:outline-none focus:border-primary focus:bg-white transition-colors text-sm rounded-none"
+                suppressHydrationWarning
               />
               <button className="btn btn-primary w-full text-white rounded-none">
                 SUBSCRIBE
@@ -155,13 +155,13 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Footer */}
+       
         <div className="border-t border-gray-100 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-gray-400">
             © {new Date().getFullYear()} Sentora. All Rights Reserved.
           </p>
           <div className="flex gap-2 opacity-60 grayscale hover:grayscale-0 transition-all duration-300">
-            {/* Payment Icons Placeholders */}
+          
             <div className="h-6 w-10 bg-gray-200 rounded"></div>
             <div className="h-6 w-10 bg-gray-200 rounded"></div>
             <div className="h-6 w-10 bg-gray-200 rounded"></div>

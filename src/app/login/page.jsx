@@ -1,14 +1,22 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { FaGoogle } from "react-icons/fa";
 import Link from "next/link";
 import LoginForm from "@/Components/auth/LoginForm";
 import SocialButton from "@/Components/Buttons/SocialButton";
-import Redirect from "@/Components/Redirect";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/authOptions";
+import { redirect } from "next/navigation";
 
-const LoginPage = async () => {
+const LoginPage = async ({ searchParams }) => {
+  const session = await getServerSession(authOptions);
+
+  if (session) {
+    const callbackUrl = searchParams?.callbackUrl || "/";
+    redirect(callbackUrl);
+  }
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <Redirect />
       <div className="max-w-md w-full bg-white p-8 rounded-sm shadow-sm border border-gray-100">
         <div className="border-b border-gray-100 pb-6 mb-6">
           <h2 className="text-2xl font-serif text-gray-800">
@@ -22,11 +30,15 @@ const LoginPage = async () => {
               Login with social account
             </p>
             <div className="flex gap-4">
-              <SocialButton />
+              <Suspense fallback={<div>Loading social login...</div>}>
+                <SocialButton />
+              </Suspense>
             </div>
           </div>
 
-          <LoginForm />
+          <Suspense fallback={<div>Loading login form...</div>}>
+            <LoginForm />
+          </Suspense>
           {/* <div className="text-center">
             <p>
               Don't have an account?{" "}

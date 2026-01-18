@@ -14,6 +14,7 @@ import {
 import AuthButton from "../Buttons/AuthButton";
 import CartValue from "../home/CartValue";
 import SearchButton from "../Buttons/SearchButton";
+import ShoppingBagButton from "../Buttons/ShoppingBagButton";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -63,10 +64,7 @@ const Navbar = () => {
             <div className="flex items-center gap-4 md:gap-6 shrink-0">
               <AuthButton />
 
-              <div className="indicator cursor-pointer group">
-                <CartValue />
-                <FaShoppingBag className="w-5 h-5 md:w-6 md:h-6 text-gray-600 group-hover:text-primary transition-colors" />
-              </div>
+              <ShoppingBagButton />
 
               <button
                 className="lg:hidden text-gray-700 hover:text-primary focus:outline-none"

@@ -74,3 +74,191 @@ export const searchProducts = async (query) => {
     image: getFixedImage(product.image),
   }));
 };
+
+export const getFilterOptions = async () => {
+  const collection = await dbConnect(collections.PRODUCTS);
+
+  // Use aggregate instead of distinct for strict API v1 compatibility
+  const brandsResult = await collection
+    .aggregate([{ $group: { _id: "$brandName" } }, { $sort: { _id: 1 } }])
+    .toArray();
+  const brands = brandsResult.map((item) => item._id).filter(Boolean);
+
+  const gendersResult = await collection
+    .aggregate([{ $group: { _id: "$gender" } }, { $sort: { _id: 1 } }])
+    .toArray();
+  const genders = gendersResult.map((item) => item._id).filter(Boolean);
+
+  // Get max price for range slider
+  const priceResult = await collection
+    .aggregate([
+      {
+        $group: {
+          _id: null,
+          maxPrice: { $max: "$price" },
+          minPrice: { $min: "$price" },
+        },
+      },
+    ])
+    .toArray();
+
+  const { maxPrice, minPrice } = priceResult[0] || {
+    maxPrice: 1000,
+    minPrice: 0,
+  };
+
+  return {
+    brands: brands.filter(Boolean).sort(),
+    genders: genders.filter(Boolean).sort(),
+    priceRange: { min: minPrice, max: maxPrice },
+  };
+};
+
+export const getFilteredProducts = async (filters) => {
+  const collection = await dbConnect(collections.PRODUCTS);
+  const {
+    sort,
+    minPrice,
+    maxPrice,
+    brands,
+    genders,
+    q,
+    page = 1,
+    limit = 12,
+  } = filters;
+
+  const query = {};
+
+  // Search Query
+  if (q) {
+    const regex = new RegExp(q, "i");
+    query.$or = [{ name: regex }, { brandName: regex }, { gender: regex }];
+  }
+
+  // Price Filter
+  if (minPrice || maxPrice) {
+    query.price = {};
+    if (minPrice) query.price.$gte = parseFloat(minPrice);
+    if (maxPrice) query.price.$lte = parseFloat(maxPrice);
+  }
+
+  // Brand Filter
+  if (brands) {
+    const brandList = brands.split(",");
+    if (brandList.length > 0) {
+      query.brandName = { $in: brandList };
+    }
+  }
+
+  // Gender Filter
+  if (genders) {
+    const genderList = genders.split(",");
+    if (genderList.length > 0) {
+      query.gender = { $in: genderList.map((g) => new RegExp(g, "i")) };
+    }
+  }
+
+  // Sorting
+  let sortOptions = {};
+  switch (sort) {
+    case "price-asc":
+      sortOptions = { price: 1 };
+      break;
+    case "price-desc":
+      sortOptions = { price: -1 };
+      break;
+    case "newest":
+      sortOptions = { year: -1 };
+      break;
+    case "rating":
+      sortOptions = { "metrics.rating": -1 };
+      break;
+    default:
+      sortOptions = { _id: -1 };
+  }
+
+  // Get total count for pagination
+  const totalProducts = await collection.countDocuments(query);
+  const totalPages = Math.ceil(totalProducts / limit);
+  const skip = (parseInt(page) - 1) * parseInt(limit);
+
+  const products = await collection
+    .find(query)
+    .sort(sortOptions)
+    .skip(skip)
+    .limit(parseInt(limit))
+    .toArray();
+
+  return {
+    products: products.map((product) => ({
+      ...product,
+      _id: product._id.toString(),
+      image: getFixedImage(product.image),
+    })),
+    pagination: {
+      currentPage: parseInt(page),
+      totalPages,
+      totalProducts,
+      hasNextPage: parseInt(page) < totalPages,
+      hasPrevPage: parseInt(page) > 1,
+    },
+  };
+};
+
+export const getCollections = async () => {
+  const productsCollection = await dbConnect(collections.PRODUCTS);
+
+  // Get counts for each gender/category
+  const genderCounts = await productsCollection
+    .aggregate([
+      {
+        $group: {
+          _id: "$gender",
+          count: { $sum: 1 },
+        },
+      },
+    ])
+    .toArray();
+
+  // Map genders to collection data
+  const categoryMap = {
+    men: {
+      title: "For Him",
+      image:
+        "https://i.ibb.co.com/PsknsjQ6/image.png",
+      gender: "men",
+    },
+    women: {
+      title: "For Her",
+      image:
+        "https://i.ibb.co.com/FLvVHFsC/image.png",
+      gender: "women",
+    },
+    unisex: {
+      title: "Unisex",
+      image:
+        "https://i.ibb.co.com/6csPDsHT/image.png",
+      gender: "unisex",
+    },
+  };
+
+  const categoryCollections = genderCounts.map((item) => {
+    const gender = item._id.toLowerCase();
+    const categoryInfo = categoryMap[gender] || {
+      title: item._id,
+      image:
+        "https://images.unsplash.com/photo-1594035910387-fea4779426e9?q=80&w=800&auto=format&fit=crop",
+      gender: gender,
+    };
+
+    return {
+      ...categoryInfo,
+      count: item.count,
+      countText: `${item.count} Product${item.count !== 1 ? "s" : ""}`,
+    };
+  });
+
+  return categoryCollections
+    .filter((c) => c.count > 0)
+    .sort((a, b) => b.count - a.count);
+};

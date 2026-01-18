@@ -3,6 +3,8 @@ const dbname = process.env.DBNAME;
 export const collections = {
   PRODUCTS: "products",
   USERS: "users",
+  WISHLIST: "wishlist",
+  CART: "cart",
 };
 import { MongoClient, ServerApiVersion } from "mongodb";
 

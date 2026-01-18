@@ -3,17 +3,26 @@ import Products from "@/Components/home/Products";
 import Collections from "@/Components/home/Collections";
 import Features from "@/Components/home/Features";
 import Newsletter from "@/Components/home/Newsletter";
+import Testimonials from "@/Components/home/Testimonials";
+import WhyChooseUs from "@/Components/home/WhyChooseUs";
 import { Suspense } from "react";
 import ProductSkeleton from "@/Components/skeleton/ProductSkeleton";
 
 export default function Home() {
   return (
     <div className="flex flex-col gap-0">
+      {/* Section 1: Hero Banner */}
       <Banner />
+
+      {/* Section 2: Features/Benefits */}
       <Features />
+
+      {/* Section 3: Curated Collections */}
       <section className="py-10">
         <Collections />
       </section>
+
+      {/* Section 4: Featured Products */}
       <section className="py-0">
         <Suspense
           fallback={
@@ -34,6 +43,14 @@ export default function Home() {
           <Products />
         </Suspense>
       </section>
+
+      {/* Section 5: Why Choose Us */}
+      <WhyChooseUs />
+
+      {/* Section 6: Customer Testimonials */}
+      <Testimonials />
+
+      {/* Section 7: Newsletter Subscription */}
       <Newsletter />
     </div>
   );

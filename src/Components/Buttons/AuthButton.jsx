@@ -61,22 +61,7 @@ const AuthButton = () => {
                 </p>
               </div>
 
-              <div className="py-2">
-                <Link
-                  href="/profile"
-                  className="flex items-center gap-3 px-5 py-2.5 text-sm text-gray-600 hover:bg-gray-50 hover:text-primary transition-colors"
-                >
-                  <FaUser className="w-4 h-4" />
-                  <span>My Profile</span>
-                </Link>
-                <Link
-                  href="/settings"
-                  className="flex items-center gap-3 px-5 py-2.5 text-sm text-gray-600 hover:bg-gray-50 hover:text-primary transition-colors"
-                >
-                  <FaCog className="w-4 h-4" />
-                  <span>Settings</span>
-                </Link>
-              </div>
+          
 
               <div className="border-t border-gray-100 mt-1 pt-1">
                 <button

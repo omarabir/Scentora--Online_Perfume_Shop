@@ -38,7 +38,7 @@ const BlogPage = async () => {
       date: "January 03, 2026",
       author: "Sophie Laurent",
       image:
-        "https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=800&auto=format&fit=crop",
+        "https://i.ibb.co.com/j9yZRtjS/image.png",
     },
     {
       id: 4,
@@ -101,7 +101,7 @@ const BlogPage = async () => {
             >
               <div className="relative overflow-hidden w-full aspect-[4/3] mb-6">
                 <div className="absolute top-4 left-4 z-10">
-                  <span className="bg-white/90 backdrop-blur-sm px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#A68A58]">
+                  <span className="bg-white/90 backdrop-blur-sm px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-primary">
                     {post.category}
                   </span>
                 </div>
@@ -148,23 +148,7 @@ const BlogPage = async () => {
         </div>
 
 
-        <div className="mt-20 flex justify-center gap-2">
-          <button className="w-10 h-10 flex items-center justify-center border border-primary bg-primary text-white font-medium transition-colors">
-            1
-          </button>
-          <button className="w-10 h-10 flex items-center justify-center border border-gray-200 text-gray-500 hover:border-black hover:text-black transition-colors">
-            2
-          </button>
-          <button className="w-10 h-10 flex items-center justify-center border border-gray-200 text-gray-500 hover:border-black hover:text-black transition-colors">
-            3
-          </button>
-          <span className="w-10 h-10 flex items-center justify-center text-gray-400">
-            ...
-          </span>
-          <button className="w-10 h-10 flex items-center justify-center border border-gray-200 text-gray-500 hover:border-black hover:text-black transition-colors">
-            <FaArrowRight />
-          </button>
-        </div>
+      
       </div>
 
 

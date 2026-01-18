@@ -3,14 +3,12 @@ import { FiSearch } from "react-icons/fi";
 
 const DetailsButton = () => {
   return (
-    <div>
-      <button
-        className="text-white hover:text-gray-200 transition-colors"
-        title="Quick View"
-      >
-        <FiSearch size={20} />
-      </button>
-    </div>
+    <button
+      className="text-white hover:text-gray-200 transition-colors flex items-center justify-center"
+      title="Quick View"
+    >
+      <FiSearch size={20} />
+    </button>
   );
 };
 

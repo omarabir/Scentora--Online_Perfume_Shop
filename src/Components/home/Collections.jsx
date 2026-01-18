@@ -1,28 +1,14 @@
 import React from "react";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
+import { getCollections } from "@/app/actions/server/product";
 
-const Collections = () => {
-  const categories = [
-    {
-      title: "For Him",
-      image:
-        "https://i.ibb.co.com/PsknsjQ6/image.png",
-      count: "12 Products",
-    },
-    {
-      title: "For Her",
-      image:
-        "https://i.ibb.co.com/FLvVHFsC/image.png",
-      count: "18 Products",
-    },
-    {
-      title: "Unisex",
-      image:
-        "https://i.ibb.co.com/6csPDsHT/image.png",
-      count: "8 Products",
-    },
-  ];
+const Collections = async () => {
+  const categories = await getCollections();
+
+  if (!categories || categories.length === 0) {
+    return null;
+  }
 
   return (
     <div className="container mx-auto px-4 py-16">
@@ -50,11 +36,11 @@ const Collections = () => {
                 {cat.title}
               </h3>
               <span className="text-sm tracking-widest uppercase mb-6 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-100">
-                {cat.count}
+                {cat.countText}
               </span>
 
               <Link
-                href="/shop"
+                href={`/shop?genders=${cat.gender}`}
                 className="flex items-center gap-2 border-b border-white pb-1 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-200 hover:text-primary hover:border-primary"
               >
                 Shop Now <FaArrowRight size={12} />

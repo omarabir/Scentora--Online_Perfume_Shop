@@ -1,12 +1,12 @@
 "use client";
 
+import React from "react";
 import { useSession } from "next-auth/react";
 import { useRouter, usePathname } from "next/navigation";
-import { FiShoppingBag } from "react-icons/fi";
 import { toast } from "react-toastify";
 import { useCart } from "@/provider/CartProvider";
 
-const CartButton = ({ product }) => {
+const AddToBag = ({ product }) => {
   const { status } = useSession();
   const router = useRouter();
   const pathname = usePathname();
@@ -26,12 +26,11 @@ const CartButton = ({ product }) => {
   return (
     <button
       onClick={handleAddToCart}
-      className="text-white hover:text-gray-200 transition-colors flex items-center justify-center"
-      title="Add to Cart"
+      className="w-full btn bg-primary text-white uppercase tracking-[0.15em] text-sm font-bold transition-colors duration-300 hover:bg-opacity-90 border-none"
     >
-      <FiShoppingBag size={20} />
+      Add to Bag
     </button>
   );
 };
 
-export default CartButton;
+export default AddToBag;

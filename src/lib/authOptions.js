@@ -47,7 +47,7 @@ export const authOptions = {
     },
     async jwt({ token, user, account }) {
       if (user) {
-        token.id = user._id; 
+        token.id = user._id;
         token.role = user.role;
         token.image = user.image;
 
@@ -73,6 +73,13 @@ export const authOptions = {
         session.user.image = token.image;
       }
       return session;
+    },
+    async redirect({ url, baseUrl }) {
+      // Allows relative callback URLs
+      if (url.startsWith("/")) return `${baseUrl}${url}`;
+      // Allows callback URLs on the same origin
+      else if (new URL(url).origin === baseUrl) return url;
+      return baseUrl;
     },
   },
   session: {
