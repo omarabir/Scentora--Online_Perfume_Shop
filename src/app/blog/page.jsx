@@ -27,7 +27,7 @@ const BlogPage = async () => {
       date: "December 05, 2025",
       author: "Marc Dubois",
       image:
-        "https://images.unsplash.com/photo-1594035910387-40f7d657a7a2?q=80&w=800&auto=format&fit=crop",
+        "https://i.ibb.co.com/cpF37jk/best-winter-colognes-2023-header.jpg",
     },
     {
       id: 3,
@@ -60,7 +60,7 @@ const BlogPage = async () => {
       date: "January 10, 2026",
       author: "Elena Rossi",
       image:
-        "https://images.unsplash.com/photo-1512777576255-a8c7849e39d2?q=80&w=800&auto=format&fit=crop",
+        "https://i.ibb.co.com/Gf9YdJBL/image.png",
     },
     {
       id: 6,
@@ -71,7 +71,7 @@ const BlogPage = async () => {
       date: "January 08, 2026",
       author: "Marc Dubois",
       image:
-        "https://images.unsplash.com/photo-1616949755610-8c9732165081?q=80&w=800&auto=format&fit=crop",
+        "https://i.ibb.co.com/rft4p5Nb/couple-propagating-their-houseplants-as-hobby-together-1.jpg",
     },
   ];
 
