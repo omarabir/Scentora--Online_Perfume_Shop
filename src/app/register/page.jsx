@@ -4,6 +4,10 @@ import Redirect from "@/Components/Redirect";
 import Link from "next/link";
 import React from "react";
 
+export const metadata = {
+  title: "Register | Sentora",
+  description: "Create a new Sentora account and join our community.",
+};
 
 const page = () => {
   return (

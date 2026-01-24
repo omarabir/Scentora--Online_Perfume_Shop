@@ -53,14 +53,14 @@ const Pagination = ({ pagination }) => {
       {hasPrevPage ? (
         <Link
           href={createPageUrl(currentPage - 1)}
-          className="flex items-center justify-center w-10 h-10 rounded-lg border border-gray-300 hover:border-primary hover:text-primary transition-colors"
+          className="flex items-center justify-center w-10 h-10 rounded-lg border border-gray-300 dark:border-gray-700 hover:border-primary hover:text-primary transition-colors"
         >
           <FaChevronLeft className="text-sm" />
         </Link>
       ) : (
         <button
           disabled
-          className="flex items-center justify-center w-10 h-10 rounded-lg border border-gray-200 text-gray-300 cursor-not-allowed"
+          className="flex items-center justify-center w-10 h-10 rounded-lg border border-gray-200 dark:border-gray-800 text-gray-300 dark:text-gray-700 cursor-not-allowed"
         >
           <FaChevronLeft className="text-sm" />
         </button>
@@ -71,7 +71,7 @@ const Pagination = ({ pagination }) => {
         page === "..." ? (
           <span
             key={`ellipsis-${index}`}
-            className="flex items-center justify-center w-10 h-10 text-gray-400"
+            className="flex items-center justify-center w-10 h-10 text-gray-400 dark:text-gray-500"
           >
             ...
           </span>
@@ -82,19 +82,19 @@ const Pagination = ({ pagination }) => {
             className={`flex items-center justify-center w-10 h-10 rounded-lg border font-medium transition-colors ${
               currentPage === page
                 ? "bg-primary text-white border-primary"
-                : "border-gray-300 hover:border-primary hover:text-primary"
+                : "border-gray-300 dark:border-gray-700 hover:border-primary hover:text-primary"
             }`}
           >
             {page}
           </Link>
-        )
+        ),
       )}
 
       {/* Next Button */}
       {hasNextPage ? (
         <Link
           href={createPageUrl(currentPage + 1)}
-          className="flex items-center justify-center w-10 h-10 rounded-lg border border-gray-300 hover:border-primary hover:text-primary transition-colors"
+          className="flex items-center justify-center w-10 h-10 rounded-lg border border-gray-300 dark:border-gray-700 hover:border-primary hover:text-primary transition-colors"
         >
           <FaChevronRight className="text-sm" />
         </Link>

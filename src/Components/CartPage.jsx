@@ -14,9 +14,9 @@ const CartPage = () => {
   if (!isInitialized) {
     return <CartSkeleton />;
   }
-const checkout = () => {
-  toast.success('Proceeding to checkout!');
-}
+  const checkout = () => {
+    toast.success("Proceeding to checkout!");
+  };
   const groupedItems = cart.reduce((acc, item) => {
     const existingItem = acc.find((i) => i._id === item._id);
     if (existingItem) {
@@ -65,29 +65,31 @@ const checkout = () => {
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">
-      <div className="text-sm text-gray-500 mb-8">
+      <div className="text-sm text-gray-500 dark:text-gray-400 mb-8">
         <Link href="/" className="hover:text-primary">
           Home
         </Link>{" "}
         <span className="mx-2">»</span>{" "}
-        <span className="font-semibold text-gray-900">Shopping Cart</span>
+        <span className="font-semibold text-gray-900 dark:text-white">
+          Shopping Cart
+        </span>
       </div>
 
-      <h1 className="text-xl font-bold text-gray-900 uppercase tracking-wide mb-8">
+      <h1 className="text-xl font-bold text-gray-900 dark:text-white uppercase tracking-wide mb-8">
         Shopping Cart
       </h1>
 
       <div className=" gap-8">
         {/* Cart Items */}
         <div className="lg:col-span-2">
-          <div className="bg-white border border-gray-100 rounded-sm">
+          <div className="bg-white dark:bg-base-100 border border-gray-100 dark:border-gray-700 rounded-sm">
             {groupedItems.map((item) => (
               <div
                 key={item._id}
-                className="p-4 md:p-6 border-b border-gray-100 last:border-b-0"
+                className="p-4 md:p-6 border-b border-gray-100 dark:border-gray-700 last:border-b-0"
               >
                 <div className="flex gap-4 md:gap-6 items-start md:items-center">
-                  <div className="relative w-20 h-20 md:w-24 md:h-24 bg-gray-50 shrink-0">
+                  <div className="relative w-20 h-20 md:w-24 md:h-24 bg-gray-50 dark:bg-gray-200 shrink-0">
                     {item.image && (
                       <Image
                         src={item.image}
@@ -150,56 +152,56 @@ const checkout = () => {
             ))}
           </div>
         </div>
-
-     
-     
       </div>
-         <div className="lg:col-span-1">
-          <div className="bg-white border border-gray-100 rounded-sm p-6 sticky top-24">
-            <h2 className="text-lg font-bold text-gray-900 mb-6 uppercase tracking-wide">
-              Order Summary
-            </h2>
+      <div className="lg:col-span-1">
+        <div className="bg-white border border-gray-100 rounded-sm p-6 sticky top-24">
+          <h2 className="text-lg font-bold text-gray-900 mb-6 uppercase tracking-wide">
+            Order Summary
+          </h2>
 
-            <div className="space-y-4 mb-6">
-              <div className="flex justify-between text-gray-600">
-                <span>Subtotal ({groupedItems.length} items)</span>
-                <span className="font-medium">${subtotal.toFixed(2)}</span>
-              </div>
-
-              <div className="flex justify-between text-gray-600">
-                <span>Shipping</span>
-                <span className="font-medium">
-                  {shipping === 0 ? "Free" : `$${shipping.toFixed(2)}`}
-                </span>
-              </div>
-
-              <div className="flex justify-between text-gray-600">
-                <span>Tax (10%)</span>
-                <span className="font-medium">${tax.toFixed(2)}</span>
-              </div>
-
-              <div className="border-t border-gray-200 pt-4">
-                <div className="flex justify-between text-lg">
-                  <span className="font-bold text-gray-900">Total</span>
-                  <span className="font-bold text-primary text-xl">
-                    ${total.toFixed(2)}
-                  </span>
-                </div>
-              </div>
+          <div className="space-y-4 mb-6">
+            <div className="flex justify-between text-gray-600">
+              <span>Subtotal ({groupedItems.length} items)</span>
+              <span className="font-medium">${subtotal.toFixed(2)}</span>
             </div>
 
-            <button onClick={checkout} className="w-full bg-primary text-white py-3 rounded-sm font-bold uppercase tracking-wider hover:bg-black transition-colors mb-3">
-              Proceed to Checkout
-            </button>
+            <div className="flex justify-between text-gray-600">
+              <span>Shipping</span>
+              <span className="font-medium">
+                {shipping === 0 ? "Free" : `$${shipping.toFixed(2)}`}
+              </span>
+            </div>
 
-            <Link
-              href="/shop"
-              className="block text-center text-sm text-gray-600 hover:text-primary transition-colors"
-            >
-              Continue Shopping
-            </Link>
+            <div className="flex justify-between text-gray-600">
+              <span>Tax (10%)</span>
+              <span className="font-medium">${tax.toFixed(2)}</span>
+            </div>
+
+            <div className="border-t border-gray-200 pt-4">
+              <div className="flex justify-between text-lg">
+                <span className="font-bold text-gray-900">Total</span>
+                <span className="font-bold text-primary text-xl">
+                  ${total.toFixed(2)}
+                </span>
+              </div>
+            </div>
           </div>
+
+          <button
+            onClick={checkout}
+            className="w-full bg-primary text-white py-3 rounded-sm font-bold uppercase tracking-wider hover:bg-black transition-colors mb-3"
+          >
+            Proceed to Checkout
+          </button>
+
+          <Link
+            href="/shop"
+            className="block text-center text-sm text-gray-600 hover:text-primary transition-colors"
+          >
+            Continue Shopping
+          </Link>
         </div>
+      </div>
     </div>
   );
 };

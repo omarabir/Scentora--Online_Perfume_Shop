@@ -13,7 +13,7 @@ const Collections = async () => {
   return (
     <div className="container mx-auto px-4 py-16">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-serif font-bold text-slate-900 mb-2">
+        <h2 className="text-3xl font-serif font-bold text-slate-900 dark:text-white mb-2">
           Curated Collections
         </h2>
         <div className="w-16 h-1 bg-primary mx-auto rounded-full"></div>

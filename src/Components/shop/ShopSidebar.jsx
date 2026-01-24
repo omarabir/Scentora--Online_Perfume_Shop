@@ -14,12 +14,14 @@ const FilterSection = ({ title, children, isOpen: defaultOpen = true }) => {
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
-    <div className="bg-white rounded border border-gray-200 shadow-sm overflow-hidden mb-3">
+    <div className="bg-white dark:bg-base-100 rounded border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden mb-3">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between w-full px-4 py-3 bg-gray-50/50 text-left transition-colors hover:bg-gray-100/50"
+        className="flex items-center justify-between w-full px-4 py-3 bg-gray-50/50 dark:bg-gray-800/50 text-left transition-colors hover:bg-gray-100/50 dark:hover:bg-gray-700/50"
       >
-        <span className="font-semibold text-gray-700 text-sm">{title}</span>
+        <span className="font-semibold text-gray-700 dark:text-gray-200 text-sm">
+          {title}
+        </span>
         {isOpen ? (
           <FaChevronUp className="text-[10px] text-gray-400" />
         ) : (
@@ -28,7 +30,9 @@ const FilterSection = ({ title, children, isOpen: defaultOpen = true }) => {
       </button>
 
       {isOpen && (
-        <div className="px-4 py-3 border-t border-gray-100">{children}</div>
+        <div className="px-4 py-3 border-t border-gray-100 dark:border-gray-700">
+          {children}
+        </div>
       )}
     </div>
   );
@@ -131,7 +135,7 @@ const ShopSidebar = ({
   ];
 
   return (
-    <div className="bg-[#f4f6f8]  rounded-md h-fit">
+    <div className="  rounded-md h-fit">
       {(tempFilters.genders.length > 0 || tempFilters.brands.length > 0) && (
         <div className="mb-6 flex flex-wrap gap-2">
           {tempFilters.genders.map((g) => (

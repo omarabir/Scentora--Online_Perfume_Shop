@@ -153,6 +153,27 @@ const posts = [
   },
 ];
 
+export async function generateMetadata({ params }) {
+  const { id } = await params;
+  const post = posts.find((p) => p.id === parseInt(id));
+
+  if (!post) {
+    return {
+      title: "Article Not Found | Sentora Blog",
+    };
+  }
+
+  return {
+    title: `${post.title} | Sentora Blog`,
+    description: post.excerpt,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      images: [post.image],
+    },
+  };
+}
+
 const BlogPost = async ({ params }) => {
   await new Promise((resolve) => setTimeout(resolve, 2000));
   const { id } = await params;

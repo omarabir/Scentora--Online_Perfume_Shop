@@ -2,8 +2,13 @@ import React from "react";
 import Link from "next/link";
 import { FaArrowRight, FaCalendarAlt, FaUser } from "react-icons/fa";
 
+export const metadata = {
+  title: "Blog | Sentora",
+  description:
+    "Read the latest news, guides, and trends in the world of fragrances.",
+};
+
 const BlogPage = async () => {
- 
   await new Promise((resolve) => setTimeout(resolve, 2000));
 
   const posts = [
@@ -37,8 +42,7 @@ const BlogPage = async () => {
       category: "Education",
       date: "January 03, 2026",
       author: "Sophie Laurent",
-      image:
-        "https://i.ibb.co.com/j9yZRtjS/image.png",
+      image: "https://i.ibb.co.com/j9yZRtjS/image.png",
     },
     {
       id: 4,
@@ -59,8 +63,7 @@ const BlogPage = async () => {
       category: "Lifestyle",
       date: "January 10, 2026",
       author: "Elena Rossi",
-      image:
-        "https://i.ibb.co.com/Gf9YdJBL/image.png",
+      image: "https://i.ibb.co.com/Gf9YdJBL/image.png",
     },
     {
       id: 6,
@@ -77,9 +80,7 @@ const BlogPage = async () => {
 
   return (
     <div className="bg-white min-h-screen text-slate-800 font-sans selection:bg-primary selection:text-white">
-   
       <div className="bg-gray-50 py-16 md:py-24 text-center border-b border-gray-100">
-      
         <h1 className="text-4xl md:text-6xl font-serif font-medium text-slate-900 mb-6">
           Perfume Stories
         </h1>
@@ -90,9 +91,6 @@ const BlogPage = async () => {
       </div>
 
       <div className="container mx-auto px-6 py-16">
-       
-
-       
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
           {posts.map((post) => (
             <article
@@ -146,11 +144,7 @@ const BlogPage = async () => {
             </article>
           ))}
         </div>
-
-
-      
       </div>
-
 
       <div className="bg-[#f8f8f8] py-20 px-6">
         <div className="container mx-auto max-w-2xl text-center">

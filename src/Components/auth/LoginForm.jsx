@@ -83,7 +83,7 @@ const LoginForm = () => {
         <div>
           <label
             htmlFor="email"
-            className="block text-sm font-medium text-gray-700 mb-2"
+            className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
           >
             Email
           </label>
@@ -95,8 +95,10 @@ const LoginForm = () => {
             value={form.email}
             onChange={handleChange}
             autoComplete="email"
-            className={`appearance-none relative block w-full px-4 py-3 border placeholder-gray-300 text-gray-900 rounded-full focus:outline-none focus:ring-primary focus:border-primary focus:z-10 sm:text-sm bg-white transition-colors ${
-              errors.email ? "border-red-500" : "border-gray-200"
+            className={`appearance-none relative block w-full px-4 py-3 border placeholder-gray-300 dark:placeholder-gray-500 text-gray-900 dark:text-gray-100 rounded-full focus:outline-none focus:ring-primary focus:border-primary focus:z-10 sm:text-sm bg-white dark:bg-gray-800 transition-colors ${
+              errors.email
+                ? "border-red-500"
+                : "border-gray-200 dark:border-gray-700"
             }`}
             placeholder="Enter your email"
           />
@@ -108,7 +110,7 @@ const LoginForm = () => {
         <div>
           <label
             htmlFor="password"
-            className="block text-sm font-medium text-gray-700 mb-2"
+            className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
           >
             Password
           </label>
@@ -121,15 +123,17 @@ const LoginForm = () => {
               value={form.password}
               onChange={handleChange}
               autoComplete="current-password"
-              className={`appearance-none relative block w-full px-4 py-3 border placeholder-gray-300 text-gray-900 rounded-full focus:outline-none focus:ring-primary focus:border-primary focus:z-10 sm:text-sm bg-white transition-colors ${
-                errors.password ? "border-red-500" : "border-gray-200"
+              className={`appearance-none relative block w-full px-4 py-3 border placeholder-gray-300 dark:placeholder-gray-500 text-gray-900 dark:text-gray-100 rounded-full focus:outline-none focus:ring-primary focus:border-primary focus:z-10 sm:text-sm bg-white dark:bg-gray-800 transition-colors ${
+                errors.password
+                  ? "border-red-500"
+                  : "border-gray-200 dark:border-gray-700"
               }`}
               placeholder="Enter your password"
             />
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute inset-y-0 right-0 pr-4 flex items-center z-20 cursor-pointer text-gray-400 hover:text-gray-600 focus:outline-none"
+              className="absolute inset-y-0 right-0 pr-4 flex items-center z-20 cursor-pointer text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 focus:outline-none"
             >
               {showPassword ? (
                 <FaEyeSlash className="h-5 w-5" />

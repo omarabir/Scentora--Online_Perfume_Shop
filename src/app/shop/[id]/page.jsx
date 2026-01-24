@@ -20,6 +20,36 @@ import Image from "next/image";
 import AddtoWishlist from "@/Components/Buttons/AddtoWishlist";
 import AddToBag from "@/Components/Buttons/AddToBag";
 
+export async function generateMetadata(props) {
+  const params = await props.params;
+  const { id } = params;
+  const product = await getSingleProduct(id);
+
+  if (!product) {
+    return {
+      title: "Product Not Found | Sentora",
+      description: "The requested product could not be found.",
+    };
+  }
+
+  return {
+    title: `${product.name} - ${product.brandName} | Sentora`,
+    description: `Buy ${product.name} by ${product.brandName}. Price: $${product.price}. Available at Sentora.`,
+    openGraph: {
+      title: `${product.name} - ${product.brandName}`,
+      description: `Buy ${product.name} by ${product.brandName}. Price: $${product.price}.`,
+      images: [
+        {
+          url: product.image,
+          width: 800,
+          height: 600,
+          alt: product.name,
+        },
+      ],
+    },
+  };
+}
+
 const ProductDetails = async (props) => {
   const params = await props.params;
   const { id } = params;
@@ -138,7 +168,6 @@ const ProductDetails = async (props) => {
                 </span>
               </div>
               <Image
-            
                 src={image}
                 alt={name}
                 className="w-3/4 max-h-[80%] object-contain drop-shadow-2xl opacity-100 transform transition-transform duration-700 ease-out group-hover:scale-105"
@@ -216,7 +245,7 @@ const ProductDetails = async (props) => {
                   </span>
                 </div>
                 <div className="flex  gap-4 mb-8">
-                 <AddToBag product={product} />
+                  <AddToBag product={product} />
                   <AddtoWishlist productId={product._id} />
                 </div>
               </div>

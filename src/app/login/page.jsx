@@ -7,6 +7,12 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/authOptions";
 import { redirect } from "next/navigation";
 
+export const metadata = {
+  title: "Login | Sentora",
+  description:
+    "Login to your Sentora account to access your orders and wishlist.",
+};
+
 const LoginPage = async ({ searchParams }) => {
   const session = await getServerSession(authOptions);
 

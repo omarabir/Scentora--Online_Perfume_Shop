@@ -11,5 +11,3 @@
   --color-primary: #c40101;
 
 }
-
-@custom-variant dark (&:where([data-theme=night], [data-theme=night] *));

@@ -32,15 +32,17 @@ const Features = () => {
           {features.map((feature, idx) => (
             <div
               key={idx}
-              className="flex flex-col items-center text-center p-6 bg-base-200 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 border border-transparent hover:border-gray-100 group"
+              className="flex flex-col items-center text-center p-6 bg-base-200 dark:bg-base-100/50 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 border border-transparent hover:border-gray-100 dark:hover:border-gray-700 group"
             >
-              <div className="text-gray-400 group-hover:text-primary transition-colors duration-300 mb-4 bg-gray-50 group-hover:bg-[#FFF0F0] p-4 rounded-full">
+              <div className="text-gray-400 group-hover:text-primary transition-colors duration-300 mb-4 bg-gray-50 dark:bg-gray-700 group-hover:bg-[#FFF0F0] dark:group-hover:bg-primary/20 p-4 rounded-full">
                 {feature.icon}
               </div>
-              <h3 className="font-serif font-bold text-slate-900 text-lg mb-2">
+              <h3 className="font-serif font-bold text-slate-900 dark:text-white text-lg mb-2">
                 {feature.title}
               </h3>
-              <p className="text-gray-500 text-sm">{feature.desc}</p>
+              <p className="text-gray-500 dark:text-gray-400 text-sm">
+                {feature.desc}
+              </p>
             </div>
           ))}
         </div>

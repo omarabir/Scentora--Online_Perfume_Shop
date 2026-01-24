@@ -22,7 +22,7 @@ const ProductCard = ({ product }) => {
         stars.push(<FaStar key={i} className="text-amber-400 text-sm" />);
       } else if (i > rating && i - 1 < rating) {
         stars.push(
-          <FaStarHalfAlt key={i} className="text-amber-400 text-sm" />
+          <FaStarHalfAlt key={i} className="text-amber-400 text-sm" />,
         );
       } else {
         stars.push(<FaRegStar key={i} className="text-gray-300 text-sm" />);
@@ -32,7 +32,7 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <div className="group bg-white  transition-all duration-300 hover:border-primary border  border-gray-200 relative flex flex-col items-center">
+    <div className="group bg-white dark:bg-base-100 dark:text-base-content transition-all duration-300 hover:border-primary border border-gray-200 dark:border-base-300 relative flex flex-col items-center">
       {isNew && (
         <div className="absolute top-4 left-4 z-10 hidden sm:block">
           <span className="bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
@@ -41,7 +41,7 @@ const ProductCard = ({ product }) => {
         </div>
       )}
 
-      <div className="w-full h-40 sm:h-64 mb-4 flex items-center justify-center overflow-hidden relative bg-[#F2F2F2]">
+      <div className="w-full h-40 sm:h-64 mb-4 flex items-center justify-center overflow-hidden relative bg-[#F2F2F2] dark:bg-gray-800">
         <Link href={`/shop/${product._id}`} className="w-full h-full block">
           <Image
             width={500}
@@ -78,7 +78,7 @@ const ProductCard = ({ product }) => {
         <div className="flex items-center gap-0.5">{renderStars(rating)}</div>
 
         <div className="flex items-center gap-3 mt-1">
-          <span className="text-[#0F172A] font-bold text-base sm:text-lg tracking-tight">
+          <span className="text-[#0F172A] dark:text-white font-bold text-base sm:text-lg tracking-tight">
             ${price}
           </span>
         </div>

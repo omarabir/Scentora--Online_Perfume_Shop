@@ -28,7 +28,7 @@ const Navbar = () => {
 
   return (
     <div className="flex flex-col w-full font-sans relative z-50">
-      <div className="bg-primary text-white text-xs md:text-sm py-2 hidden md:block">
+      <div className="bg-primary text-white dark:bg-primary text-xs md:text-sm py-2 hidden md:block">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="text-center md:text-left">
             Welcome to our online store!
@@ -45,7 +45,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="bg-white py-4 md:py-6 shadow-sm md:shadow-none sticky top-0 z-40 md:static">
+      <div className="bg-white dark:bg-base-100 py-4 md:py-6 shadow-sm md:shadow-none sticky top-0 z-40 md:static">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <Link href="/" className="shrink-0">
@@ -61,13 +61,13 @@ const Navbar = () => {
               <SearchButton />
             </div>
 
-            <div className="flex items-center gap-4 md:gap-6 shrink-0">
+            <div className="flex items-center gap-2 md:gap-1 shrink-0">
               <AuthButton />
 
               <ShoppingBagButton />
 
               <button
-                className="lg:hidden text-gray-700 hover:text-primary focus:outline-none"
+                className="lg:hidden text-gray-700 dark:text-white hover:text-primary focus:outline-none"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               >
                 {isMobileMenuOpen ? (
@@ -85,9 +85,9 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="bg-[#f5f5f5] border-t border-gray-100 hidden lg:block p-4">
+      <div className="bg-[#f5f5f5] dark:bg-base-200 border-t border-gray-100 dark:border-base-300 hidden lg:block p-4">
         <div className="container mx-auto px-4 flex items-center">
-          <ul className="flex-1 flex justify-center items-center gap-8 text-sm font-bold text-black uppercase tracking-wide">
+          <ul className="flex-1 flex justify-center items-center gap-8 text-sm font-bold text-black dark:text-gray-200 uppercase tracking-wide">
             {navLinks.map((link) => (
               <li key={link.name}>
                 <NavLink href={link.path}>{link.name}</NavLink>
@@ -110,15 +110,15 @@ const Navbar = () => {
         />
 
         <div
-          className={`absolute top-0 left-0 w-[80%] max-w-sm h-full bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${
+          className={`absolute top-0 left-0 w-[80%] max-w-sm h-full bg-white dark:bg-base-100 shadow-xl transform transition-transform duration-300 ease-in-out ${
             isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
-          <div className="p-5 border-b border-gray-100 flex justify-between items-center">
+          <div className="p-5 border-b border-gray-100 dark:border-gray-700 flex justify-between items-center">
             <span className="font-bold text-lg text-primary">Menu</span>
             <button
               onClick={() => setIsMobileMenuOpen(false)}
-              className="text-gray-500 hover:text-red-500"
+              className="text-gray-500 dark:text-gray-400 hover:text-red-500"
             >
               <FaTimes size={20} />
             </button>
@@ -128,21 +128,21 @@ const Navbar = () => {
               {navLinks.map((link) => (
                 <li
                   key={link.name}
-                  className="border-b border-gray-50 last:border-none"
+                  className="border-b border-gray-50 dark:border-gray-700 last:border-none"
                 >
                   <Link
                     href={link.path}
-                    className="block px-5 py-4 text-gray-700 font-medium hover:bg-gray-50 hover:text-primary transition-colors"
+                    className="block px-5 py-4 text-gray-700 dark:text-gray-200 font-medium hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-primary transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {link.name}
                   </Link>
                 </li>
               ))}
-              <li className="border-b border-gray-50">
+              <li className="border-b border-gray-50 dark:border-gray-700">
                 <Link
                   href="/login"
-                  className="block px-5 py-4 text-gray-700 font-medium hover:bg-gray-50 hover:text-primary transition-colors"
+                  className="block px-5 py-4 text-gray-700 dark:text-gray-200 font-medium hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-primary transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Login / Register

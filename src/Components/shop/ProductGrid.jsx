@@ -4,7 +4,7 @@ import ProductCard from "../cards/ProductCard";
 const ProductGrid = ({ products }) => {
   if (!products || products.length === 0) {
     return (
-      <div className="flex mb-5 flex-col items-center justify-center py-20 text-gray-500">
+      <div className="flex mb-5 flex-col items-center justify-center py-20 text-gray-500 dark:text-gray-400">
         <p className="text-lg">No products found matching these filters.</p>
         <p className="text-sm mt-2">Try adjusting your search criteria.</p>
       </div>

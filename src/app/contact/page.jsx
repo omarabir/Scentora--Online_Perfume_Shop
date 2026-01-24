@@ -6,10 +6,14 @@ import {
   FaClock,
 } from "react-icons/fa";
 
+export const metadata = {
+  title: "Contact Us | Sentora",
+  description: "Get in touch with us for any inquiries or support.",
+};
+
 const ContactPage = () => {
   return (
     <div className="bg-white min-h-screen text-slate-800 font-sans selection:bg-primary selection:text-white">
-      
       <div className="bg-gray-50 py-16 md:py-24 text-center">
         <h1 className="text-4xl md:text-5xl font-serif font-medium text-slate-900 mb-4">
           Contact Us
@@ -23,7 +27,6 @@ const ContactPage = () => {
 
       <div className="container mx-auto px-6 py-16 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-       
           <div>
             <h2 className="text-2xl font-serif mb-8 text-slate-900">
               Send a Message
@@ -91,9 +94,7 @@ const ContactPage = () => {
             </form>
           </div>
 
-          
           <div className="flex flex-col gap-12">
-            
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               <div className="bg-gray-50 p-8 border border-gray-100">
                 <FaMapMarkerAlt className="text-primary text-2xl mb-4" />
@@ -144,7 +145,6 @@ const ContactPage = () => {
               </div>
             </div>
 
-            
             <div className="w-full h-80 bg-gray-200 grayscale hover:grayscale-0 transition-all duration-500">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9916256937595!2d2.292292615509614!3d48.85837007928746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2964e34e2d%3A0x8ddca9ee380ef7e0!2sEiffel%20Tower!5e0!3m2!1sen!2sus!4v1647528886737!5m2!1sen!2sus"

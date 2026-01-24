@@ -48,29 +48,29 @@ const SearchButton = () => {
       ref={wrapperRef}
       className="relative flex flex-1 justify-center w-full max-w-xl"
     >
-      <div className="flex w-full items-center border border-gray-200 rounded-full bg-gray-50 focus-within:bg-white focus-within:border-primary transition-colors overflow-hidden h-11 relative z-10">
+      <div className="flex w-full items-center border border-gray-200 dark:border-gray-700 rounded-full bg-gray-50 dark:bg-gray-800 focus-within:bg-white dark:focus-within:bg-gray-700 focus-within:border-primary transition-colors overflow-hidden h-11 relative z-10">
         <input
-          className="flex-1 w-full h-full bg-transparent px-6 text-sm text-gray-700 placeholder:text-gray-400 focus:outline-none"
+          className="flex-1 w-full h-full bg-transparent px-6 text-sm text-gray-700 dark:text-gray-200 placeholder:text-gray-400 focus:outline-none"
           placeholder="Search for products..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => query.length >= 2 && setShowSuggestions(true)}
         />
-        <button className="btn h-full px-8 bg-primary text-white hover:bg-opacity-90 transition-colors flex items-center justify-center">
+        <button className="btn h-full px-8 bg-primary dark:bg-primary text-white hover:bg-opacity-90 transition-colors flex items-center justify-center">
           <FaSearch className="w-4 h-4" />
         </button>
       </div>
 
       {showSuggestions && suggestions.length > 0 && (
-        <div className="absolute top-12 left-0 w-full bg-white border border-gray-100 rounded-lg shadow-xl z-50 overflow-hidden">
+        <div className="absolute top-12 left-0 w-full bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-lg shadow-xl z-50 overflow-hidden">
           {suggestions.map((product) => (
             <Link
               key={product._id}
               href={`/shop/${product._id}`}
-              className="flex items-center gap-4 p-3 hover:bg-gray-50 transition-colors border-b last:border-0 border-gray-100"
+              className="flex items-center gap-4 p-3 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors border-b last:border-0 border-gray-100 dark:border-gray-700"
               onClick={() => setShowSuggestions(false)}
             >
-              <div className="relative w-12 h-12 shrink-0 rounded-md overflow-hidden bg-gray-100">
+              <div className="relative w-12 h-12 shrink-0 rounded-md overflow-hidden bg-gray-100 dark:bg-gray-700">
                 <Image
                   src={product.image}
                   alt={product.name}
@@ -82,7 +82,7 @@ const SearchButton = () => {
                 <span className="text-xs text-primary font-medium">
                   {product.brand}
                 </span>
-                <span className="text-sm text-gray-800 font-medium truncate">
+                <span className="text-sm text-gray-800 dark:text-gray-200 font-medium truncate">
                   {product.name}
                 </span>
               </div>

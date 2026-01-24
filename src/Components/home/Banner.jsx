@@ -10,7 +10,7 @@ const slides = [
     title: "A Range Of Perfume",
     price: "$250.00",
     image: "https://i.ibb.co.com/hxVwVppY/p1.png",
-    bgColor: "bg-[#f2f2f2]",
+    bgColor: "bg-[#f2f2f2] dark:bg-base-200",
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const slides = [
     title: "Luxury Summer Scent",
     price: "$180.00",
     image: "https://i.ibb.co.com/VpBqhbW4/image.png",
-    bgColor: "bg-[#f2f2f2]",
+    bgColor: "bg-[#f2f2f2] dark:bg-base-200",
   },
   {
     id: 3,
@@ -26,7 +26,7 @@ const slides = [
     title: "Floral Essence Edition",
     price: "$320.00",
     image: "https://i.ibb.co.com/0jjQJQzd/image.png",
-    bgColor: "bg-[#f2f2f2]",
+    bgColor: "bg-[#f2f2f2] dark:bg-base-200",
   },
 ];
 
@@ -59,7 +59,6 @@ const Banner = () => {
                 : "opacity-0 absolute top-0 left-0 w-full"
             }`}
           >
-      
             <div
               className="flex-1 text-center md:text-left space-y-4 z-10 transition-transform duration-700 delay-100 pb-8 md:pb-0"
               style={{
@@ -70,17 +69,19 @@ const Banner = () => {
               <h3 className="text-primary font-bold text-xs sm:text-sm uppercase tracking-widest mb-2">
                 {slide.subtitle}
               </h3>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-4 hidden md:block">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight mb-4 hidden md:block">
                 {slide.title.split(" ").slice(0, 3).join(" ")} <br />{" "}
                 {slide.title.split(" ").slice(3).join(" ")}
               </h1>
-     
-              <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-4 md:hidden">
+
+              <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white leading-tight mb-4 md:hidden">
                 {slide.title}
               </h1>
 
               <div className="flex items-baseline gap-2 justify-center md:justify-start text-lg sm:text-xl md:text-2xl mb-6 md:mb-8">
-                <span className="text-gray-500 font-medium">New Price:</span>
+                <span className="text-gray-500 dark:text-gray-300 font-medium">
+                  New Price:
+                </span>
                 <span className="text-primary font-bold text-2xl sm:text-3xl">
                   {slide.price}
                 </span>
@@ -88,13 +89,12 @@ const Banner = () => {
 
               <Link
                 href="/shop"
-                className="inline-block text-black font-bold uppercase tracking-wider text-xs sm:text-sm border-b-2 border-black pb-1 hover:text-primary hover:border-primary transition-colors"
+                className="inline-block text-black dark:text-white font-bold uppercase tracking-wider text-xs sm:text-sm border-b-2 border-black dark:border-white pb-1 hover:text-primary hover:border-primary transition-colors"
               >
                 Shop Now
               </Link>
             </div>
 
-     
             <div className="flex-1 flex justify-center md:justify-end relative w-full">
               <div className="relative w-[260px] h-[340px] sm:w-[320px] sm:h-[420px] md:w-[400px] md:h-[500px]">
                 <img
@@ -112,7 +112,6 @@ const Banner = () => {
         ))}
       </div>
 
-    
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20">
         {slides.map((_, index) => (
           <button

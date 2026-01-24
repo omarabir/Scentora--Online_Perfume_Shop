@@ -2,16 +2,16 @@ import React from "react";
 
 const Newsletter = () => {
   return (
-    <section className="relative py-20 bg-base-200 text-white">
+    <section className="relative py-20 bg-base-200 dark:bg-base-300 text-white">
       <div className="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1595166669910-c020556da85f?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center"></div>
       <div className="container mx-auto px-4 relative z-10 text-center">
         <span className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-4 block">
           Stay in the Loop
         </span>
-        <h2 className="text-3xl md:text-5xl text-black font-serif font-medium mb-6">
+        <h2 className="text-3xl md:text-5xl text-black dark:text-white font-serif font-medium mb-6">
           Join Our Exclusive Club
         </h2>
-        <p className="text-gray-300 max-w-2xl mx-auto mb-10 font-light">
+        <p className="text-gray-300 dark:text-gray-400 max-w-2xl mx-auto mb-10 font-light mix-blend-difference dark:mix-blend-normal">
           Subscribe to our newsletter to receive updates on new arrivals,
           special offers, and expert fragrance tips directly to your inbox.
         </p>
@@ -20,7 +20,7 @@ const Newsletter = () => {
           <input
             type="email"
             placeholder="Your email address"
-            className="flex-1 bg-white backdrop-blur-sm border border-white/20 text-white placeholder:text-gray-400 px-6 py-4 focus:outline-none focus:border-primary focus:bg-white/20 transition-all rounded-sm"
+            className="flex-1 bg-white backdrop-blur-sm border border-white/20 text-black dark:text-white placeholder:text-gray-400 px-6 py-4 focus:outline-none focus:border-primary focus:bg-white/20 dark:bg-black/20 transition-all rounded-sm"
           />
           <button className="bg-primary hover:bg-primary-dark text-white px-8 py-4 uppercase tracking-[0.15em] text-xs font-bold transition-all transform hover:scale-105 rounded-sm">
             Subscribe

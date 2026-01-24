@@ -6,7 +6,7 @@ import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 const Footer = () => {
   return (
-    <footer className="bg-white border-t border-gray-100 pt-16 font-sans">
+    <footer className="bg-white dark:bg-base-100 border-t border-gray-100 dark:border-base-300 pt-16 font-sans">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="space-y-2">
@@ -17,7 +17,7 @@ const Footer = () => {
                 className="h-20 md:h-24 w-auto object-contain"
               />
             </Link>
-            <p className="text-gray-500 text-sm leading-relaxed">
+            <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
               Discover your signature scent from our exclusive collection of
               premium fragrances. Luxury perfumes for every occasion.
             </p>
@@ -53,12 +53,11 @@ const Footer = () => {
             </div>
           </div>
 
-   
           <div>
-            <h3 className="text-lg font-bold mb-6 text-gray-900">
+            <h3 className="text-lg font-bold mb-6 text-gray-900 dark:text-white">
               Quick Links
             </h3>
-            <ul className="space-y-4 text-sm text-gray-500">
+            <ul className="space-y-4 text-sm text-gray-500 dark:text-gray-400">
               <li>
                 <Link
                   href="/about"
@@ -94,12 +93,11 @@ const Footer = () => {
             </ul>
           </div>
 
-       
           <div>
-            <h3 className="text-lg font-bold mb-6 text-gray-900">
+            <h3 className="text-lg font-bold mb-6 text-gray-900 dark:text-white">
               Customer Support
             </h3>
-            <ul className="space-y-4 text-sm text-gray-500">
+            <ul className="space-y-4 text-sm text-gray-500 dark:text-gray-400">
               <li>
                 <Link
                   href="/faq"
@@ -135,17 +133,18 @@ const Footer = () => {
             </ul>
           </div>
 
-         
           <div>
-            <h3 className="text-lg font-bold mb-6 text-gray-900">Newsletter</h3>
-            <p className="text-gray-500 text-sm mb-6">
+            <h3 className="text-lg font-bold mb-6 text-gray-900 dark:text-white">
+              Newsletter
+            </h3>
+            <p className="text-gray-500 dark:text-gray-400 text-sm mb-6">
               Subscribe to receive updates, access to exclusive deals, and more.
             </p>
             <form className="space-y-3">
               <input
                 type="email"
                 placeholder="Enter your email address"
-                className="w-full px-4 py-3 bg-gray-50 border border-gray-100 focus:outline-none focus:border-primary focus:bg-white transition-colors text-sm rounded-none"
+                className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 focus:outline-none focus:border-primary focus:bg-white dark:focus:bg-gray-700 transition-colors text-sm rounded-none"
                 suppressHydrationWarning
               />
               <button className="btn btn-primary w-full text-white rounded-none">
@@ -155,17 +154,15 @@ const Footer = () => {
           </div>
         </div>
 
-       
-        <div className="border-t border-gray-100 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="border-t border-gray-100 dark:border-base-300 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-gray-400">
             © {new Date().getFullYear()} Sentora. All Rights Reserved.
           </p>
           <div className="flex gap-2 opacity-60 grayscale hover:grayscale-0 transition-all duration-300">
-          
-            <div className="h-6 w-10 bg-gray-200 rounded"></div>
-            <div className="h-6 w-10 bg-gray-200 rounded"></div>
-            <div className="h-6 w-10 bg-gray-200 rounded"></div>
-            <div className="h-6 w-10 bg-gray-200 rounded"></div>
+            <div className="h-6 w-10 bg-gray-200 dark:bg-gray-700 rounded"></div>
+            <div className="h-6 w-10 bg-gray-200 dark:bg-gray-700 rounded"></div>
+            <div className="h-6 w-10 bg-gray-200 dark:bg-gray-700 rounded"></div>
+            <div className="h-6 w-10 bg-gray-200 dark:bg-gray-700 rounded"></div>
           </div>
         </div>
       </div>

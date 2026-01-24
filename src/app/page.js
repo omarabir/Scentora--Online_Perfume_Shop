@@ -11,18 +11,12 @@ import ProductSkeleton from "@/Components/skeleton/ProductSkeleton";
 export default function Home() {
   return (
     <div className="flex flex-col gap-0">
-      {/* Section 1: Hero Banner */}
+    
       <Banner />
-
-      {/* Section 2: Features/Benefits */}
       <Features />
-
-      {/* Section 3: Curated Collections */}
       <section className="py-10">
         <Collections />
       </section>
-
-      {/* Section 4: Featured Products */}
       <section className="py-0">
         <Suspense
           fallback={
