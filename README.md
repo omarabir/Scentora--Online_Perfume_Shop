@@ -2,6 +2,8 @@
 
 A modern, full-featured e-commerce application built with Next.js 15 (App Router), featuring product browsing, authentication, and a responsive design optimized for all devices.
 
+**Live URL**: [https://sentora-online-perfume-shop.vercel.app/](https://sentora-online-perfume-shop.vercel.app/)
+
 ## 🚀 Project Overview
 
 Sentora is a fragrance e-commerce platform that allows users to browse products, filter by categories and brands, view detailed product information, and manage their shopping experience with authentication-based features.
